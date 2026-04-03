@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import About from "./components/home/About";
 import Classes from "./components/home/Classes";
 import Contact from "./components/home/Contact";
@@ -21,6 +22,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
