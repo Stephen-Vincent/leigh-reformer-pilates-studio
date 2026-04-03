@@ -1,8 +1,17 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
+import type { IncomingMessage, ServerResponse } from "node:http";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const TO_EMAIL = "stephenthomasvincent17@gmail.com";
+interface VercelRequest extends IncomingMessage {
+  body?: Record<string, unknown>;
+  method?: string;
+}
+
+interface VercelResponse extends ServerResponse {
+  status(code: number): VercelResponse;
+  json(data: unknown): VercelResponse;
+}
+
+const TO_EMAIL = "stevevincent17@yahoo.co.uk";
 
 /* ── Spam-protection helpers ─────────────────────────────────── */
 
@@ -124,9 +133,24 @@ function buildEmail(
 /* ── Handler ──────────────────────────────────────────────────── */
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // CORS headers for the deployed frontend
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).json({});
+  }
+
   // Only allow POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Check API key is configured
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY environment variable is not set");
+    return res.status(500).json({ error: "Email service is not configured." });
   }
 
   const body = req.body ?? {};
@@ -150,23 +174,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Derive site URL from request for the logo
   const proto = req.headers["x-forwarded-proto"] || "https";
-  const host = req.headers["x-forwarded-host"] || req.headers.host || "leighreformerpilatesstudio.com";
+  const host =
+    req.headers["x-forwarded-host"] ||
+    req.headers.host ||
+    "leighreformerpilatesstudio.com";
   const siteUrl = `${proto}://${host}`;
 
   try {
-    const { error } = await resend.emails.send({
+    // Initialise Resend here so a missing key doesn't crash at module load
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { data, error } = await resend.emails.send({
       from: "Leigh Reformer Pilates Studio <onboarding@resend.dev>",
       to: TO_EMAIL,
       replyTo: String(email),
       subject: `New message: ${subject}`,
-      html: buildEmail({ name, email, subject, message }, siteUrl),
+      html: buildEmail(
+        { name: String(name), email: String(email), subject: String(subject), message: String(message) },
+        siteUrl,
+      ),
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("Resend API error:", JSON.stringify(error));
       return res.status(500).json({ error: "Failed to send email. Please try again." });
     }
 
+    console.log("Email sent successfully:", data);
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error("Server error:", err);
