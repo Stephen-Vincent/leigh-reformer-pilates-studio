@@ -1,6 +1,6 @@
 export const bookingLinks = {
-  primary: "https://bookwhen.com/your-studio",
-  timetable: "https://bookwhen.com/your-studio",
-  introOffer: "https://bookwhen.com/your-studio",
-  privateSessions: "https://bookwhen.com/your-studio",
+  primary: "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/e/ev-sgpk-20251113200000",
+  timetable: "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/e/ev-sgpk-20251113200000",
+  introOffer: "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/e/ev-sgpk-20251113200000",
+  privateSessions: "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/e/ev-sgpk-20251113200000",
 };
