@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, ArrowRight } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -55,10 +55,10 @@ export default function Header() {
     isScrolled ? "text-foreground" : "text-white"
   }`;
 
-  const ctaClass = `hidden rounded-full px-5 py-5 transition-colors duration-300 sm:inline-flex ${
+  const ctaClass = `hidden rounded-full px-5 py-5 sm:inline-flex btn-scale-hover ${
     isScrolled
       ? "bg-primary text-primary-foreground"
-      : "bg-white/90 text-black hover:bg-white"
+      : "bg-white/90 text-black"
   }`;
 
   return (
@@ -69,21 +69,26 @@ export default function Header() {
           : "bg-transparent backdrop-blur-0 shadow-none"
       }`}
     >
-      <Container className="flex items-center justify-between py-4">
-        {/* Logo */}
-        <a
-          href="#home"
-          className="mx-auto md:mx-0 pl-9 md:pl-0 block shrink-0 font-heading lg:mx-0"
-        >
-          <img
-            src={isScrolled ? logoDark : logoLight}
-            alt="Leigh Reformer Pilates Studio logo"
-            className="h-24 w-auto sm:h-14"
-          />
-        </a>
+      <Container className="flex items-center py-4">
+        {/* Invisible spacer on mobile to balance the hamburger so the logo centres */}
+        <div className="w-11 shrink-0 lg:hidden" aria-hidden="true" />
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 lg:flex">
+        {/* Logo — centred on mobile, left-aligned on desktop */}
+        <div className="flex flex-1 items-center justify-center lg:flex-initial lg:justify-start">
+          <a
+            href="#home"
+            className="block shrink-0 font-heading"
+          >
+            <img
+              src={isScrolled ? logoDark : logoLight}
+              alt="Leigh Reformer Pilates Studio logo"
+              className="h-24 w-auto sm:h-14"
+            />
+          </a>
+        </div>
+
+        {/* Desktop nav — takes remaining space and centres */}
+        <nav className="hidden items-center justify-center gap-6 lg:flex lg:flex-1">
           {navLinks.map((link) => (
             <a key={link.label} href={link.href} className={navLinkClass}>
               {link.label}
@@ -91,11 +96,12 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 ">
+        <div className="flex items-center justify-end gap-3">
           {/* CTA */}
           <Button asChild className={ctaClass}>
             <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
-              Book Now
+              Book a Class
+              <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
 
@@ -143,14 +149,15 @@ export default function Header() {
                   <SheetClose asChild>
                     <Button
                       asChild
-                      className="bg-primary w-full rounded-full px-5 py-5"
+                      className="bg-primary w-full rounded-full px-5 py-5 btn-scale-hover"
                     >
                       <a
                         href={bookingLinks.primary}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Book now
+                        Book a Class
+                        <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
                   </SheetClose>

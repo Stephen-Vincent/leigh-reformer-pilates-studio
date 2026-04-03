@@ -96,7 +96,7 @@ function FaqRow({
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center justify-between gap-6 py-5 text-left sm:py-6"
+        className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left sm:py-6"
       >
         <span className="font-heading text-lg leading-tight sm:text-xl lg:text-2xl">
           {item.question}

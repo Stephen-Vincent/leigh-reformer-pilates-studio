@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { ArrowRight, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/shared/Container";
 import { bookingLinks } from "@/config/booking";
@@ -109,19 +110,23 @@ export default function Hero() {
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <Button
                 asChild
-                className="rounded-full border-2 border-accent/50 bg-accent/50 px-8 py-5 text-primary-foreground"
+                className="rounded-full border-2 border-accent/50 bg-accent/50 px-8 py-5 text-primary-foreground btn-scale-hover"
               >
                 <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
-                  Book Now
+                  Book a Class
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-white/70 bg-white/10 px-6 py-5 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
+                className="rounded-full border-white/70 bg-white/10 px-6 py-5 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white btn-scale-hover"
               >
-                <a href="#classes">See Classes</a>
+                <a href="#classes">
+                  <Eye className="mr-2 h-4 w-4" />
+                  See Classes
+                </a>
               </Button>
             </div>
           </motion.div>

@@ -1,4 +1,5 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { useState, useRef } from "react";
+import { Mail, MapPin, Phone, ArrowRight, Loader2, CheckCircle } from "lucide-react";
 import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 
@@ -9,7 +10,54 @@ const contactDetails = {
   mapQuery: "Unit 3, 1 High Street, Leigh, WN72AD",
 };
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function Contact() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const timestampRef = useRef(Date.now());
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    const payload = {
+      name: fd.get("Name"),
+      email: fd.get("Email"),
+      subject: fd.get("Subject"),
+      message: fd.get("Message"),
+      _honeypot: fd.get("_honeypot"),
+      _timestamp: timestampRef.current.toString(),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setStatus("success");
+      form.reset();
+      timestampRef.current = Date.now();
+    } catch (err) {
+      setErrorMsg(
+        err instanceof Error ? err.message : "Something went wrong.",
+      );
+      setStatus("error");
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -84,89 +132,137 @@ export default function Contact() {
                     Send a message
                   </h3>
 
-                  <form
-                    className="mt-8 space-y-5"
-                    action={`mailto:${contactDetails.email}`}
-                    method="post"
-                    encType="text/plain"
-                  >
-                    <div className="grid gap-5 sm:grid-cols-2">
+                  {status === "success" ? (
+                    <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-green-200 bg-green-50 py-12 text-center">
+                      <CheckCircle className="h-10 w-10 text-green-600" />
+                      <p className="font-heading text-lg font-semibold text-green-800">
+                        Message sent!
+                      </p>
+                      <p className="text-sm text-green-700">
+                        We'll get back to you as soon as possible.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setStatus("idle")}
+                        className="mt-2 cursor-pointer text-sm text-green-700 underline underline-offset-2 hover:text-green-900"
+                      >
+                        Send another message
+                      </button>
+                    </div>
+                  ) : (
+                    <form
+                      ref={formRef}
+                      className="mt-8 space-y-5"
+                      onSubmit={handleSubmit}
+                    >
+                      {/* Honeypot — hidden from real users, bots auto-fill it */}
+                      <div className="absolute -left-[9999px]" aria-hidden="true">
+                        <label htmlFor="_honeypot">
+                          Do not fill this field
+                          <input
+                            type="text"
+                            id="_honeypot"
+                            name="_honeypot"
+                            tabIndex={-1}
+                            autoComplete="off"
+                          />
+                        </label>
+                      </div>
+
+                      <div className="grid gap-5 sm:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor="name"
+                            className="mb-2 block text-sm font-medium text-foreground"
+                          >
+                            Name
+                          </label>
+                          <input
+                            id="name"
+                            name="Name"
+                            type="text"
+                            required
+                            className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
+                            placeholder="Your name"
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="mb-2 block text-sm font-medium text-foreground"
+                          >
+                            Email
+                          </label>
+                          <input
+                            id="email"
+                            name="Email"
+                            type="email"
+                            required
+                            className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
+                            placeholder="you@example.com"
+                          />
+                        </div>
+                      </div>
+
                       <div>
                         <label
-                          htmlFor="name"
+                          htmlFor="subject"
                           className="mb-2 block text-sm font-medium text-foreground"
                         >
-                          Name
+                          Subject
                         </label>
                         <input
-                          id="name"
-                          name="Name"
+                          id="subject"
+                          name="Subject"
                           type="text"
                           required
                           className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
-                          placeholder="Your name"
+                          placeholder="How can we help?"
                         />
                       </div>
 
                       <div>
                         <label
-                          htmlFor="email"
+                          htmlFor="message"
                           className="mb-2 block text-sm font-medium text-foreground"
                         >
-                          Email
+                          Message
                         </label>
-                        <input
-                          id="email"
-                          name="Email"
-                          type="email"
+                        <textarea
+                          id="message"
+                          name="Message"
                           required
+                          rows={6}
                           className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
-                          placeholder="you@example.com"
+                          placeholder="Write your message here"
                         />
                       </div>
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="subject"
-                        className="mb-2 block text-sm font-medium text-foreground"
+                      {status === "error" && (
+                        <p className="text-sm text-red-600">{errorMsg}</p>
+                      )}
+
+                      <Button
+                        asChild
+                        className="cursor-pointer rounded-full bg-black px-8 py-5 text-white btn-scale-hover"
                       >
-                        Subject
-                      </label>
-                      <input
-                        id="subject"
-                        name="Subject"
-                        type="text"
-                        required
-                        className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
-                        placeholder="How can we help?"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="mb-2 block text-sm font-medium text-foreground"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="Message"
-                        required
-                        rows={6}
-                        className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-foreground/30"
-                        placeholder="Write your message here"
-                      />
-                    </div>
-
-                    <Button
-                      asChild
-                      className="rounded-full bg-black px-8 py-5 text-white hover:bg-black/90"
-                    >
-                      <button type="submit">Send Message</button>
-                    </Button>
-                  </form>
+                        <button type="submit" disabled={status === "sending"}>
+                          {status === "sending" ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Sending…
+                            </>
+                          ) : (
+                            <>
+                              Send Message
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </>
+                          )}
+                        </button>
+                      </Button>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>

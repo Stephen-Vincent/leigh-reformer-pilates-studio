@@ -13,9 +13,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background py-10">
       <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
-          {/* Left - Brand */}
-          <div>
+        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center">
+          {/* Left - Brand (fixed width) */}
+          <div className="shrink-0">
             <div className="flex flex-col md:flex-row items-center gap-2">
               <img
                 src={logoDark}
@@ -33,8 +33,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center - Nav */}
-          <nav className="flex flex-wrap justify-center gap-6 text-sm">
+          {/* Center - Nav (takes remaining space, centres links) */}
+          <nav className="flex flex-1 flex-wrap justify-center gap-6 text-sm">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -46,8 +46,8 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Right - Contact */}
-          <div className="text-sm text-muted-foreground">
+          {/* Right - Contact (fixed width) */}
+          <div className="shrink-0 text-sm text-muted-foreground lg:text-right">
             <p>07846102759</p>
             <p className="mt-1">stephenthomasvincent17@gmail.com</p>
           </div>

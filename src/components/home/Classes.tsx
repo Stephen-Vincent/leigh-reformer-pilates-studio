@@ -99,9 +99,9 @@ export default function Classes() {
               </p>
             </div>
             <div className="shrink-0 ">
-              <Button asChild className="bg-primary rounded-full px-8 py-5">
+              <Button asChild className="bg-primary rounded-full px-8 py-5 btn-scale-hover">
                 <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
-                  Book a class
+                  Book a Class
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>

@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/shared/Container";
 import { bookingLinks } from "@/config/booking";
@@ -30,9 +31,10 @@ export default function Mission() {
 
           {/* CTA */}
           <div className="mt-10">
-            <Button asChild className="rounded-full px-8 py-5">
+            <Button asChild className="rounded-full px-8 py-5 btn-scale-hover">
               <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
                 Book a Class
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
