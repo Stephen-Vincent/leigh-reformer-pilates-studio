@@ -1,10 +1,17 @@
 import { useState, useRef } from "react";
-import { Mail, MapPin, Phone, ArrowRight, Loader2, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  ArrowRight,
+  Loader2,
+  CheckCircle,
+} from "lucide-react";
 import Container from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 
 const contactDetails = {
-  email: "stephenthomasvincent17@gmail.com",
+  email: "leighreformerpilatesstudio@yahoo.com",
   phone: "07846102759",
   addressLines: ["Unit 3", "1 High Street", "Leigh", "WN72AD"],
   mapQuery: "Unit 3, 1 High Street, Leigh, WN72AD",
@@ -51,9 +58,7 @@ export default function Contact() {
       form.reset();
       timestampRef.current = Date.now();
     } catch (err) {
-      setErrorMsg(
-        err instanceof Error ? err.message : "Something went wrong.",
-      );
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
       setStatus("error");
     }
   }
@@ -156,7 +161,10 @@ export default function Contact() {
                       onSubmit={handleSubmit}
                     >
                       {/* Honeypot — hidden from real users, bots auto-fill it */}
-                      <div className="absolute -left-[9999px]" aria-hidden="true">
+                      <div
+                        className="absolute -left-[9999px]"
+                        aria-hidden="true"
+                      >
                         <label htmlFor="_honeypot">
                           Do not fill this field
                           <input
