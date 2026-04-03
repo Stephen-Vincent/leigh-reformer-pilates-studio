@@ -133,18 +133,18 @@ export default function Contact() {
                   </h3>
 
                   {status === "success" ? (
-                    <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-green-200 bg-green-50 py-12 text-center">
-                      <CheckCircle className="h-10 w-10 text-green-600" />
-                      <p className="font-heading text-lg font-semibold text-green-800">
+                    <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl border border-border bg-secondary py-12 text-center">
+                      <CheckCircle className="h-10 w-10 text-foreground" />
+                      <p className="font-heading text-lg font-semibold text-foreground">
                         Message sent!
                       </p>
-                      <p className="text-sm text-green-700">
+                      <p className="text-sm text-muted-foreground">
                         We'll get back to you as soon as possible.
                       </p>
                       <button
                         type="button"
                         onClick={() => setStatus("idle")}
-                        className="mt-2 cursor-pointer text-sm text-green-700 underline underline-offset-2 hover:text-green-900"
+                        className="mt-2 cursor-pointer text-sm text-foreground underline underline-offset-2 hover:text-foreground/70"
                       >
                         Send another message
                       </button>
