@@ -13,7 +13,7 @@ const faqItems: FaqItem[] = [
     question:
       "What is the difference between mat Pilates and reformer Pilates?",
     answer:
-      "Both focus on posture, control, alignment and strength, but the reformer adds springs, straps and pulleys to provide support and resistance. This allows for more variety, more progression, and often a greater range of motion than mat work alone.",
+      "Both focus on posture, control, alignment and strength, but the reformer adds springs, straps and pulleys to provide support and resistance. This allows for more variety, more progression and often a greater range of motion than mat work alone.",
   },
   {
     question: "Is reformer Pilates suitable for beginners?",
@@ -34,12 +34,12 @@ const faqItems: FaqItem[] = [
   {
     question: "What should I wear and bring to class?",
     answer:
-      "Wear comfortable clothing that allows you to move easily. Grip socks are recommended for safety and hygiene. You may also want to bring water, and if you are attending for the first time, arrive a few minutes early so you can settle in comfortably.",
+      "Wear comfortable clothing that allows you to move easily. Grip socks are recommended for safety and hygiene - high performance reformer grip socks with our logo design are available to purchase directly from our studio. You may also want to bring water and if you are attending for the first time, arrive a few minutes early so you can settle in comfortably.",
   },
   {
     question: "Do I need to be fit or flexible before I start?",
     answer:
-      "Not at all. You do not need any previous Pilates experience, and you do not need to be especially fit or flexible to begin. Classes are designed to help you build strength, mobility and confidence gradually over time.",
+      "Not at all. You do not need any previous Pilates experience and you do not need to be especially fit or flexible to begin. Classes are designed to help you build strength, mobility and confidence gradually over time.",
   },
 ];
 

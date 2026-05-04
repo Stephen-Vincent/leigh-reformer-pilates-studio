@@ -2,7 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/shared/Container";
-import { bookingLinks } from "@/config/booking";
+import { useBookingModal } from "@/components/shared/BookingModal";
 import heroBackground from "@/assets/HeroBackground.jpg";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
@@ -42,6 +42,7 @@ const contentVariants: Variants = {
 };
 
 export default function Hero() {
+  const { open: openBooking } = useBookingModal();
   return (
     <section
       id="home"
@@ -109,23 +110,21 @@ export default function Hero() {
             {/* CTA buttons */}
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <Button
-                asChild
-                className="rounded-full border-2 border-accent/50 bg-accent/50 px-8 py-5 text-primary-foreground btn-scale-hover"
+                className="w-48 cursor-pointer rounded-full border-2 border-accent/50 bg-accent/50 px-8 py-5 text-primary-foreground btn-scale-hover"
+                onClick={openBooking}
               >
-                <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
-                  Book a Class
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                Book a Class
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
 
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-white/70 bg-white/10 px-6 py-5 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white btn-scale-hover"
+                className="w-48 rounded-full border-white/70 bg-white/10 px-8 py-5 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white btn-scale-hover"
               >
                 <a href="#classes">
-                  <Eye className="mr-2 h-4 w-4" />
                   See Classes
+                  <Eye className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </div>

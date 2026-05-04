@@ -7,7 +7,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import Container from "../shared/Container";
-import { bookingLinks } from "../../config/booking";
+import { useBookingModal } from "../shared/BookingModal";
 import logoLight from "@/assets/LRPSLogoLight.png";
 import logoDark from "@/assets/LRPSLogoDark.png";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 // Shared nav links (used in desktop + mobile)
 const navLinks = [
   { label: "Classes", href: "#classes" },
+  { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
   { label: "Mission", href: "#mission" },
   { label: "FAQ", href: "#faq" },
@@ -22,6 +23,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const { open: openBooking } = useBookingModal();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -98,11 +100,9 @@ export default function Header() {
 
         <div className="flex items-center justify-end gap-3">
           {/* CTA */}
-          <Button asChild className={ctaClass}>
-            <a href={bookingLinks.primary} target="_blank" rel="noreferrer">
-              Book a Class
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
+          <Button className={`${ctaClass} cursor-pointer`} onClick={openBooking}>
+            Book a Class
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
 
           {/* Mobile / tablet menu */}
@@ -148,17 +148,11 @@ export default function Header() {
                 <div className="mt-auto space-y-3 pb-6">
                   <SheetClose asChild>
                     <Button
-                      asChild
-                      className="bg-primary w-full rounded-full px-5 py-5 btn-scale-hover"
+                      className="bg-primary w-full cursor-pointer rounded-full px-5 py-5 btn-scale-hover"
+                      onClick={openBooking}
                     >
-                      <a
-                        href={bookingLinks.primary}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Book a Class
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      Book a Class
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </SheetClose>
                 </div>

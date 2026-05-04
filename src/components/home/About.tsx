@@ -63,7 +63,7 @@ export default function About() {
 
           <p className="mt-4 text-base leading-7 text-primary/85 sm:text-lg">
             We are proud to offer a friendly, inclusive studio where everyone
-            feels comfortable and supported — no matter where you are starting
+            feels comfortable and supported - no matter where you are starting
             from.
           </p>
         </motion.div>
