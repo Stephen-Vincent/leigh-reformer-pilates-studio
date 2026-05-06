@@ -2,12 +2,13 @@ import Container from "@/components/shared/Container";
 import logoDark from "@/assets/LRPSLogoDark.png";
 
 const navLinks = [
-  { label: "Classes", href: "#classes" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
-  { label: "Mission", href: "#mission" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Classes", href: "/#classes" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "About", href: "/#about" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {

@@ -127,7 +127,7 @@ export function BookingModalProvider({
                 <p className="mt-5 text-center text-xs text-muted-foreground">
                   Looking for a one-to-one session?{" "}
                   <a
-                    href="#contact"
+                    href="/#contact"
                     onClick={() => setIsOpen(false)}
                     className="underline underline-offset-2 hover:text-foreground"
                   >

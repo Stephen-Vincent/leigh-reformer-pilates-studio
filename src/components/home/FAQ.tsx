@@ -41,6 +41,11 @@ const faqItems: FaqItem[] = [
     answer:
       "Not at all. You do not need any previous Pilates experience and you do not need to be especially fit or flexible to begin. Classes are designed to help you build strength, mobility and confidence gradually over time.",
   },
+  {
+    question: "Are there any age restrictions?",
+    answer:
+      "The minimum age to attend classes at Leigh Reformer Pilates Studio is 15. There is no upper age limit and our classes are designed to be suitable for all ages and abilities.",
+  },
 ];
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;

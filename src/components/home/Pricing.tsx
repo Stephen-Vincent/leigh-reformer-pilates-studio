@@ -2,10 +2,9 @@ import { motion, type Variants } from "framer-motion";
 import { Ticket, ShoppingBag, Gift, ArrowRight, PoundSterling } from "lucide-react";
 import Container from "@/components/shared/Container";
 import logoDark from "@/assets/LRPSLogoDark.png";
-import giftVoucherImg from "@/assets/GiftVoucher.jpg";
 
-const GIFT_VOUCHER_URL = "#";
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
+const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
@@ -259,34 +258,21 @@ export default function Pricing() {
             </div>
 
             <a
-              href={GIFT_VOUCHER_URL}
+              href={VOUCHERS_URL}
               target="_blank"
               rel="noreferrer"
-              className="group block cursor-pointer overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-foreground/20 btn-scale-hover"
+              className="group flex cursor-pointer items-center justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-foreground/20 btn-scale-hover"
             >
-              <div className="flex flex-col sm:flex-row">
-                <div className="w-full sm:w-80 sm:self-stretch shrink-0">
-                  <img
-                    src={giftVoucherImg}
-                    alt="Leigh Reformer Pilates Studio Gift Voucher"
-                    className="h-48 w-full object-cover sm:h-full"
-                  />
-                </div>
-                <div className="flex-1 p-6 sm:p-8">
-                  <p className="font-heading text-2xl font-bold sm:text-3xl">
-                    Gift Vouchers
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    The perfect gift for someone special. Treat a friend or
-                    loved one to a Pilates experience at Leigh Reformer Pilates
-                    Studio.
-                  </p>
-                  <p className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground">
-                    Buy a gift voucher
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                  </p>
-                </div>
+              <div>
+                <p className="font-heading text-base font-semibold sm:text-lg">
+                  Buy a gift voucher
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  The perfect gift for someone special. Valid for 12 months from
+                  purchase.
+                </p>
               </div>
+              <ArrowRight className="ml-4 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
             </a>
           </motion.div>
         </div>

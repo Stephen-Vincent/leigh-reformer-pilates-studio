@@ -13,13 +13,15 @@ import logoDark from "@/assets/LRPSLogoDark.png";
 import { Button } from "@/components/ui/button";
 
 // Shared nav links (used in desktop + mobile)
+// Prefixed with / so they work from any route
 const navLinks = [
-  { label: "Classes", href: "#classes" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
-  { label: "Mission", href: "#mission" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Classes", href: "/#classes" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "About", href: "/#about" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -78,7 +80,7 @@ export default function Header() {
         {/* Logo — centred on mobile, left-aligned on desktop */}
         <div className="flex flex-1 items-center justify-center lg:flex-initial lg:justify-start">
           <a
-            href="#home"
+            href="/#home"
             className="block shrink-0 font-heading"
           >
             <img
