@@ -1,12 +1,12 @@
 import Container from "@/components/shared/Container";
-import logoDark from "@/assets/LRPSLogoDark.png";
+import logoDark from "@/assets/LRPSlogo.png";
 
 const navLinks = [
   { label: "Classes", href: "/#classes" },
   { label: "Pricing", href: "/#pricing" },
   { label: "About", href: "/#about" },
   { label: "Reviews", href: "/#reviews" },
-  { label: "Gallery", href: "/#gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -51,7 +51,7 @@ export default function Footer() {
           {/* Right - Contact (fixed width) */}
           <div className="shrink-0 text-sm text-muted-foreground lg:text-right">
             <p>07846102759</p>
-            <p className="mt-1">stephenthomasvincent17@gmail.com</p>
+            <p className="mt-1">leighreformerpilatesstudio@yahoo.com</p>
           </div>
         </div>
 

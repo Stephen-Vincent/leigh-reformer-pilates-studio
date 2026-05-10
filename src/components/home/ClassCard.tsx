@@ -25,7 +25,7 @@ export default function ClassCard({
   onToggle,
 }: ClassCardProps) {
   return (
-    <div className="overflow-hidden  border border-border bg-card shadow-xl">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
       <div className="relative">
         <img
           src={item.image.src}

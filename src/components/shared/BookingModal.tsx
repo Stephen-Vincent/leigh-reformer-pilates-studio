@@ -3,7 +3,7 @@ import { Dialog } from "radix-ui";
 import { ArrowRight, ArrowLeft, X, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bookingLinks, classOptions } from "@/config/booking";
-import logoDark from "@/assets/LRPSLogoDark.png";
+import logoDark from "@/assets/LRPSlogo.png";
 
 /* ── Context so any button can open the modal ────────────────── */
 

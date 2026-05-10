@@ -3,7 +3,7 @@ import { ArrowRight, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/shared/Container";
 import { useBookingModal } from "@/components/shared/BookingModal";
-import heroBackground from "@/assets/HeroBackground.jpg";
+import heroBackground from "@/assets/photoshoot/group-reformer/group-reformer-class-wide-02.jpg";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
@@ -52,7 +52,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={heroBackground}
-          alt="Leigh Reformer Pilates Studio background"
+          alt="Group reformer pilates class at Leigh Reformer Pilates Studio"
           className="h-full w-full object-cover"
         />
       </div>
@@ -64,7 +64,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
 
       <Container className="relative z-10 flex min-h-screen items-center py-16 lg:py-20">
-        <div className="flex max-w-3xl flex-col justify-center text-center lg:text-left">
+        <div className="flex max-w-3xl flex-col justify-center text-center lg:text-left mx-auto lg:mx-0">
           {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, x: -16 }}
@@ -108,7 +108,7 @@ export default function Hero() {
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:items-start lg:justify-start">
               <Button
                 className="w-48 cursor-pointer rounded-full border-2 border-accent/50 bg-accent/50 px-8 py-5 text-primary-foreground btn-scale-hover"
                 onClick={openBooking}

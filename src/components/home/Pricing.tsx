@@ -1,7 +1,10 @@
 import { motion, type Variants } from "framer-motion";
 import { Ticket, ShoppingBag, Gift, ArrowRight, PoundSterling } from "lucide-react";
 import Container from "@/components/shared/Container";
-import logoDark from "@/assets/LRPSLogoDark.png";
+import socksImg from "@/assets/photoshoot/merchandise-pics/merchandise-grip-socks-footbar-01.jpg";
+import tshirtImg from "@/assets/photoshoot/instructor-pics/instructor-portrait-brown-tshirt-01.jpg";
+import vestImg from "@/assets/photoshoot/group-reformer/group-reformer-branded-top-class-01.jpg";
+import sweatshirtImg from "@/assets/photoshoot/merchandise-pics/merchandise-sweatshirts-back-group-01.jpg";
 
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
 const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
@@ -52,13 +55,33 @@ const classPasses: PassItem[] = [
   { name: "Ten Class Pass", price: "£120.00", note: "£12.00 per class" },
 ];
 
-type MerchItem = { name: string; price: string };
+type MerchItem = { name: string; price: string; image: string; imageAlt: string };
 
 const merchandise: MerchItem[] = [
-  { name: "High Performance Reformer Grip Socks", price: "£12.50" },
-  { name: "T-Shirt", price: "£22.50" },
-  { name: "Vest", price: "£19.50" },
-  { name: "Sweatshirt", price: "£37.50" },
+  {
+    name: "High Performance Reformer Grip Socks",
+    price: "£12.50",
+    image: socksImg,
+    imageAlt: "Leigh Reformer Pilates Studio branded grip socks",
+  },
+  {
+    name: "T-Shirt",
+    price: "£22.50",
+    image: tshirtImg,
+    imageAlt: "Leigh Reformer Pilates Studio branded t-shirt",
+  },
+  {
+    name: "Vest",
+    price: "£19.50",
+    image: vestImg,
+    imageAlt: "Leigh Reformer Pilates Studio branded vest",
+  },
+  {
+    name: "Sweatshirt",
+    price: "£37.50",
+    image: sweatshirtImg,
+    imageAlt: "Leigh Reformer Pilates Studio branded sweatshirt",
+  },
 ];
 
 /* ── Component ────────────────────────────────────────────────── */
@@ -88,7 +111,7 @@ export default function Pricing() {
             </p>
           </motion.div>
 
-          {/* ── Class Prices (compact table) ──────────────── */}
+          {/* ── Class Prices ──────────────────────────────── */}
           <motion.div
             variants={sectionFade}
             initial="hidden"
@@ -97,9 +120,7 @@ export default function Pricing() {
           >
             <div className="mb-6 flex items-center gap-2">
               <PoundSterling className="h-5 w-5 text-foreground" />
-              <h3 className="font-heading text-xl sm:text-2xl">
-                Class Prices
-              </h3>
+              <h3 className="font-heading text-xl sm:text-2xl">Class Prices</h3>
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
@@ -132,9 +153,7 @@ export default function Pricing() {
           <div>
             <div className="mb-6 flex items-center gap-2">
               <Ticket className="h-5 w-5 text-foreground" />
-              <h3 className="font-heading text-xl sm:text-2xl">
-                Class Passes
-              </h3>
+              <h3 className="font-heading text-xl sm:text-2xl">Class Passes</h3>
             </div>
 
             <motion.div
@@ -161,34 +180,14 @@ export default function Pricing() {
                         Popular
                       </span>
                     )}
-                    <p
-                      className={`text-sm font-medium ${
-                        pass.highlight
-                          ? "text-primary-foreground/80"
-                          : "text-muted-foreground"
-                      }`}
-                    >
+                    <p className={`text-sm font-medium ${pass.highlight ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                       {pass.name}
                     </p>
-                    <p className="mt-3 font-heading text-3xl font-bold">
-                      {pass.price}
-                    </p>
-                    <p
-                      className={`mt-2 text-xs ${
-                        pass.highlight
-                          ? "text-primary-foreground/70"
-                          : "text-muted-foreground"
-                      }`}
-                    >
+                    <p className="mt-3 font-heading text-3xl font-bold">{pass.price}</p>
+                    <p className={`mt-2 text-xs ${pass.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                       {pass.note}
                     </p>
-                    <p
-                      className={`mt-4 inline-flex items-center gap-1 text-xs font-medium ${
-                        pass.highlight
-                          ? "text-primary-foreground/80"
-                          : "text-muted-foreground"
-                      }`}
-                    >
+                    <p className={`mt-4 inline-flex items-center gap-1 text-xs font-medium ${pass.highlight ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                       Buy now
                       <ArrowRight className="h-3 w-3" />
                     </p>
@@ -202,9 +201,7 @@ export default function Pricing() {
           <div>
             <div className="mb-6 flex items-center gap-2">
               <ShoppingBag className="h-5 w-5 text-foreground" />
-              <h3 className="font-heading text-xl sm:text-2xl">
-                Studio Merchandise
-              </h3>
+              <h3 className="font-heading text-xl sm:text-2xl">Studio Merchandise</h3>
             </div>
             <p className="mb-6 text-sm text-muted-foreground">
               Available to purchase directly from our studio.
@@ -223,20 +220,16 @@ export default function Pricing() {
                   variants={cardFade}
                   className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
                 >
-                  <div className="flex h-40 items-center justify-center bg-secondary">
+                  <div className="h-48 overflow-hidden">
                     <img
-                      src={logoDark}
-                      alt={item.name}
-                      className="h-12 w-auto opacity-30"
+                      src={item.image}
+                      alt={item.imageAlt}
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
                   <div className="p-5">
-                    <p className="text-sm font-medium text-foreground">
-                      {item.name}
-                    </p>
-                    <p className="mt-2 font-heading text-xl font-bold">
-                      {item.price}
-                    </p>
+                    <p className="text-sm font-medium text-foreground">{item.name}</p>
+                    <p className="mt-2 font-heading text-xl font-bold">{item.price}</p>
                   </div>
                 </motion.div>
               ))}
@@ -252,9 +245,7 @@ export default function Pricing() {
           >
             <div className="mb-6 flex items-center gap-2">
               <Gift className="h-5 w-5 text-foreground" />
-              <h3 className="font-heading text-xl sm:text-2xl">
-                Gift Vouchers
-              </h3>
+              <h3 className="font-heading text-xl sm:text-2xl">Gift Vouchers</h3>
             </div>
 
             <a
@@ -268,8 +259,7 @@ export default function Pricing() {
                   Buy a gift voucher
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  The perfect gift for someone special. Valid for 12 months from
-                  purchase.
+                  The perfect gift for someone special. Valid for 12 months from purchase.
                 </p>
               </div>
               <ArrowRight className="ml-4 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-foreground" />

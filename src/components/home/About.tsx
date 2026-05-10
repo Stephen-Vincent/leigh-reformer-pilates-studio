@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Container from "@/components/shared/Container";
-import aboutBg from "@/assets/AboutBackground.jpg";
+import aboutBg from "@/assets/photoshoot/instructor-pics/instructor-duo-studio-01.jpg";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -21,21 +21,21 @@ export default function About() {
       <div className="absolute inset-0">
         <img
           src={aboutBg}
-          alt="About Leigh Reformer Pilates Studio"
-          className="h-full w-full object-cover"
+          alt="Leigh Reformer Pilates Studio instructors"
+          className="h-full w-full object-cover object-top scale-[1.3] -translate-y-[11%] md:scale-100 md:translate-y-0 md:translate-x-[30%] md:object-[center_30%]"
         />
       </div>
 
       {/* Accent gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-accent/100 to-accent/50 lg:bg-gradient-to-r lg:from-accent/100 lg:to-accent/50" />
+      <div className="absolute inset-0 bg-accent/75 md:bg-gradient-to-r md:from-accent md:from-[45%] md:via-accent/50 md:via-[65%] md:to-transparent" />
 
-      <Container className="relative z-10 flex min-h-screen items-center py-16 lg:py-20">
+      <Container className="relative z-10 flex min-h-screen items-center py-16 md:py-20">
         <motion.div
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-2xl text-center text-primary lg:text-left p-6 sm:p-8"
+          className="max-w-2xl md:max-w-[60%] text-center text-primary md:text-left p-6 sm:p-8"
         >
           <p className="text-xs uppercase tracking-[0.3em] text-primary/80">
             About Us

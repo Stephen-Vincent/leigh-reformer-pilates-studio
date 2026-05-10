@@ -6,8 +6,10 @@ import Container from "@/components/shared/Container";
 import { useBookingModal } from "@/components/shared/BookingModal";
 import ClassCard from "./ClassCard";
 import type { ClassCardItem } from "./ClassCard";
-import ReformerIntro from "@/assets/ReformerIntro.jpg";
-import OpenReformer from "@/assets/OpenReformer.jpg";
+import inductionImg from "@/assets/photoshoot/1-on-1-pics/one-on-one-instructor-client-bar-01.jpg";
+import mixedImg from "@/assets/photoshoot/group-reformer/group-reformer-class-wide-03.jpg";
+import matImg from "@/assets/photoshoot/mat-pilates-pics/mat-pilates-group-ball-exercise-01.jpg";
+import backCareImg from "@/assets/photoshoot/back-care/back-care-instructor-spinal-adjustment-bw-01.jpg";
 
 const classTypes: ClassCardItem[] = [
   {
@@ -15,7 +17,7 @@ const classTypes: ClassCardItem[] = [
     description:
       "A 60 minute session where you will be shown how to safely use the reformer and accessories.",
     tag: "Beginner session",
-    image: { src: ReformerIntro, alt: "Induction Reformer" },
+    image: { src: inductionImg, alt: "One-to-one induction session on the reformer" },
     details:
       "This full-body introductory session helps you learn how to use the reformer safely and confidently. You will be guided through key exercises from the reformer repertoire, building a strong foundation before joining group classes.\n\nSessions run once weekly, either 8pm Monday's, 8pm Thursday's or 12pm Saturday's.\n\nAll new clients must complete this session before attending mixed ability classes.\n\nFor one-to-one sessions, please get in touch via our contact form below.",
   },
@@ -24,7 +26,7 @@ const classTypes: ClassCardItem[] = [
     description:
       "A comprehensive 60 minute full-body workout suitable for all ages and fitness levels.",
     tag: "All levels",
-    image: { src: OpenReformer, alt: "Mixed Ability Reformer" },
+    image: { src: mixedImg, alt: "Mixed ability reformer pilates class in action" },
     details:
       "This class focuses on improving posture, flexibility, joint health and muscular strength. Exercises are adapted to suit all abilities, making it ideal whether you are progressing from your induction or already experienced.\n\nClass times:\n\n• Monday – 10:00 • 11:15 • 17:30 • 18:45\n• Tuesday – 10:00 • 17:30 • 18:45\n• Wednesday – 06:30 • 10:00 • 17:30 • 20:00\n• Thursday – 10:00 • 17:30 • 18:45\n• Friday – 10:00 • 11:15 • 17:30 • 18:45\n• Saturday – 08:15 • 09:30 • 10:45\n\nClass passes available:\n• Three Class Pass – £48.00\n• Five Class Pass – £72.50\n• Ten Class Pass – £120.00",
   },
@@ -33,7 +35,7 @@ const classTypes: ClassCardItem[] = [
     description:
       "Floor-based Pilates focusing on core strength, flexibility and body control. No induction required.",
     tag: "All levels",
-    image: { src: OpenReformer, alt: "Mat Pilates class" },
+    image: { src: matImg, alt: "Mat pilates class at Leigh Reformer Pilates Studio" },
     details:
       "A traditional Pilates class performed on the mat, focusing on core strength, flexibility, balance and body awareness. Suitable for all levels - no induction or previous experience needed.\n\nFor one-to-one sessions, please get in touch via our contact form below.",
   },
@@ -42,7 +44,7 @@ const classTypes: ClassCardItem[] = [
     description:
       "Targeted sessions designed to help relieve and prevent back pain through gentle, controlled movement.",
     tag: "Coming soon",
-    image: { src: ReformerIntro, alt: "Back Care class" },
+    image: { src: backCareImg, alt: "Back care pilates session with instructor" },
     details:
       "Further details coming soon. If you would like to register your interest, please get in touch via our contact form below.",
   },

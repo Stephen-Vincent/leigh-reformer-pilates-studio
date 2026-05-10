@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, ArrowRight } from "lucide-react";
 import {
   Sheet,
@@ -8,58 +9,107 @@ import {
 } from "@/components/ui/sheet";
 import Container from "../shared/Container";
 import { useBookingModal } from "../shared/BookingModal";
-import logoLight from "@/assets/LRPSLogoLight.png";
-import logoDark from "@/assets/LRPSLogoDark.png";
+import logoLight from "@/assets/LRPSlogoWhite.png";
+import logoDark from "@/assets/LRPSlogo.png";
 import { Button } from "@/components/ui/button";
 
-// Shared nav links (used in desktop + mobile)
-// Prefixed with / so they work from any route
 const navLinks = [
-  { label: "Classes", href: "/#classes" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "About", href: "/#about" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Classes", href: "/#classes", sectionId: "classes" },
+  { label: "Pricing", href: "/#pricing", sectionId: "pricing" },
+  { label: "About", href: "/#about", sectionId: "about" },
+  { label: "Reviews", href: "/#reviews", sectionId: "reviews" },
+  { label: "Gallery", href: "/gallery", sectionId: null },
+  { label: "FAQ", href: "/#faq", sectionId: "faq" },
+  { label: "Contact", href: "/#contact", sectionId: "contact" },
 ];
 
 export default function Header() {
   const { open: openBooking } = useBookingModal();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
+  // Hero intersection — controls transparent vs solid header
   useEffect(() => {
     const heroSection = document.querySelector("#home");
 
-    if (!heroSection) return;
+    if (!heroSection) {
+      setIsScrolled(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Transparent while the hero is mostly visible, solid once it scrolls away.
         setIsScrolled(entry.intersectionRatio < 0.9);
       },
-      {
-        root: null,
-        threshold: [0.9],
-      },
+      { root: null, threshold: [0.9] },
     );
 
     observer.observe(heroSection);
-
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
 
-  const navLinkClass = `text-md transition-colors duration-300 ${
-    isScrolled
+  // Section tracking — which section is most visible in the viewport
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const sectionIds = navLinks
+      .map((l) => l.sectionId)
+      .filter(Boolean) as string[];
+
+    const ratios: Record<string, number> = {};
+
+    const observers = sectionIds.map((id) => {
+      const el = document.querySelector(`#${id}`);
+      if (!el) return null;
+
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          ratios[id] = entry.intersectionRatio;
+          const best = Object.entries(ratios).reduce<string>(
+            (top, [key, val]) => (val > (ratios[top] ?? 0) ? key : top),
+            sectionIds[0],
+          );
+          setActiveSection(ratios[best] > 0 ? best : "");
+        },
+        { threshold: Array.from({ length: 21 }, (_, i) => i / 20) },
+      );
+
+      obs.observe(el);
+      return obs;
+    });
+
+    return () => observers.forEach((o) => o?.disconnect());
+  }, [location.pathname]);
+
+  const isLinkActive = (link: (typeof navLinks)[0]) => {
+    if (location.pathname === "/gallery" && link.href === "/gallery") return true;
+    if (location.pathname === "/" && link.sectionId && link.sectionId === activeSection) return true;
+    return false;
+  };
+
+  const navLinkClass = (link: (typeof navLinks)[0]) => {
+    const active = isLinkActive(link);
+    const base = "text-md transition-colors duration-300 relative pb-0.5";
+    const colour = isScrolled
       ? "text-foreground/80 hover:text-foreground"
-      : "text-white/85 hover:text-white"
-  }`;
+      : "text-white/85 hover:text-white";
+    const underline = active
+      ? `after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:rounded-full ${
+          isScrolled ? "after:bg-foreground" : "after:bg-white"
+        }`
+      : "";
+    return `${base} ${colour} ${underline}`;
+  };
 
   const menuIconClass = `inline-flex h-11 w-11 items-center justify-center transition-colors duration-300 lg:hidden cursor-pointer ${
     isScrolled ? "text-foreground" : "text-white"
   }`;
 
-  const ctaClass = `hidden rounded-full px-5 py-5 sm:inline-flex btn-scale-hover ${
+  const ctaClass = `hidden rounded-full px-5 py-5 lg:inline-flex btn-scale-hover ${
     isScrolled
       ? "bg-primary text-primary-foreground"
       : "bg-white/90 text-black"
@@ -73,34 +123,31 @@ export default function Header() {
           : "bg-transparent backdrop-blur-0 shadow-none"
       }`}
     >
-      <Container className="flex items-center py-4">
+      <Container className="flex items-center py-3">
         {/* Invisible spacer on mobile to balance the hamburger so the logo centres */}
         <div className="w-11 shrink-0 lg:hidden" aria-hidden="true" />
 
-        {/* Logo — centred on mobile, left-aligned on desktop */}
-        <div className="flex flex-1 items-center justify-center lg:flex-initial lg:justify-start">
-          <a
-            href="/#home"
-            className="block shrink-0 font-heading"
-          >
+        {/* Logo — centred on mobile/tablet, left-aligned on desktop */}
+        <div className="flex flex-1 items-center justify-center lg:justify-start">
+          <a href="/#home" className="block shrink-0 font-heading">
             <img
               src={isScrolled ? logoDark : logoLight}
               alt="Leigh Reformer Pilates Studio logo"
-              className="h-24 w-auto sm:h-14"
+              className="h-10 w-auto sm:h-12"
             />
           </a>
         </div>
 
-        {/* Desktop nav — takes remaining space and centres */}
-        <nav className="hidden items-center justify-center gap-6 lg:flex lg:flex-1">
+        {/* Desktop nav — truly centred between equal flex-1 columns */}
+        <nav className="hidden items-center justify-center gap-6 lg:flex">
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href} className={navLinkClass}>
+            <a key={link.label} href={link.href} className={navLinkClass(link)}>
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center justify-end gap-3">
+        <div className="flex items-center justify-end gap-3 lg:flex-1">
           {/* CTA */}
           <Button className={`${ctaClass} cursor-pointer`} onClick={openBooking}>
             Book a Class
@@ -138,7 +185,11 @@ export default function Header() {
                     <SheetClose asChild key={link.label}>
                       <a
                         href={link.href}
-                        className="border-b border-primary/20 py-4 text-base text-foreground/80 transition hover:text-foreground"
+                        className={`border-b border-primary/20 py-4 text-base transition hover:text-foreground ${
+                          isLinkActive(link)
+                            ? "font-medium text-foreground"
+                            : "text-foreground/80"
+                        }`}
                       >
                         {link.label}
                       </a>
