@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   Mail,
   MapPin,
@@ -19,11 +19,11 @@ const contactDetails = {
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
+const FORMSUBMIT_URL = "https://formsubmit.co/ajax/leighreformerpilatesstudio@yahoo.com";
+
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const formRef = useRef<HTMLFormElement>(null);
-  const timestampRef = useRef(Date.now());
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -33,30 +33,31 @@ export default function Contact() {
     const form = e.currentTarget;
     const fd = new FormData(form);
 
-    const payload = {
-      name: fd.get("Name"),
-      email: fd.get("Email"),
-      subject: fd.get("Subject"),
-      message: fd.get("Message"),
-      _honeypot: fd.get("_honeypot"),
-      _timestamp: timestampRef.current.toString(),
-    };
-
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSUBMIT_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: fd.get("Name"),
+          email: fd.get("Email"),
+          subject: fd.get("Subject"),
+          message: fd.get("Message"),
+          _subject: `New message from Leigh Reformer Pilates Studio website`,
+          _captcha: "false",
+        }),
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong.");
-      }
+      const data = await res.json();
 
-      setStatus("success");
-      form.reset();
-      timestampRef.current = Date.now();
+      if (data.success === "true" || data.success === true) {
+        setStatus("success");
+        form.reset();
+      } else {
+        throw new Error("Something went wrong. Please try again.");
+      }
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
       setStatus("error");
@@ -156,27 +157,9 @@ export default function Contact() {
                     </div>
                   ) : (
                     <form
-                      ref={formRef}
                       className="mt-8 space-y-5"
                       onSubmit={handleSubmit}
                     >
-                      {/* Honeypot — hidden from real users, bots auto-fill it */}
-                      <div
-                        className="absolute -left-[9999px]"
-                        aria-hidden="true"
-                      >
-                        <label htmlFor="_honeypot">
-                          Do not fill this field
-                          <input
-                            type="text"
-                            id="_honeypot"
-                            name="_honeypot"
-                            tabIndex={-1}
-                            autoComplete="off"
-                          />
-                        </label>
-                      </div>
-
                       <div className="grid gap-5 sm:grid-cols-2">
                         <div>
                           <label
