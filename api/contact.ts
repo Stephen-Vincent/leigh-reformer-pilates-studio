@@ -11,7 +11,7 @@ interface VercelResponse extends ServerResponse {
   json(data: unknown): VercelResponse;
 }
 
-const TO_EMAIL = "stevevincent17@yahoo.co.uk";
+const TO_EMAIL = "leighreformerpilatesstudio@yahoo.com";
 
 /* ── Spam-protection helpers ─────────────────────────────────── */
 
@@ -36,7 +36,7 @@ function buildEmail(
   fields: { name: string; email: string; subject: string; message: string },
   siteUrl: string,
 ) {
-  const logoUrl = `${siteUrl}/LRPSLogoDark.png`;
+  const logoUrl = `${siteUrl}/LRPSlogo.png`;
   const escapedMessage = fields.message.replace(/\n/g, "<br>");
 
   return `<!DOCTYPE html>
