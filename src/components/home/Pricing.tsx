@@ -7,7 +7,7 @@ import vestImg from "@/assets/photoshoot/group-reformer/group-reformer-branded-t
 import sweatshirtImg from "@/assets/photoshoot/merchandise-pics/merchandise-sweatshirts-back-group-01.jpg";
 
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
-const VOUCHERS_URL = "https://leighreformerpilates.bookwhen.com/settings/vouchers";
+const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
