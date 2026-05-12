@@ -3,7 +3,7 @@
 export const bookingLinks = {
   /** First-timers: must complete induction before group classes */
   induction:
-    "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/vouchers",
+    "https://leighreformerpilates.bookwhen.com/schedules/9urwlvjz9rkh#",
 
   /** Returning clients: reformer mixed-abilities timetable */
   mixedAbilities:

@@ -7,7 +7,7 @@ import vestImg from "@/assets/photoshoot/group-reformer/group-reformer-branded-t
 import sweatshirtImg from "@/assets/photoshoot/merchandise-pics/merchandise-sweatshirts-back-group-01.jpg";
 
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
-const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
+const VOUCHERS_URL = "https://leighreformerpilates.bookwhen.com/settings/vouchers";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
@@ -151,9 +151,12 @@ export default function Pricing() {
 
           {/* ── Class Passes ──────────────────────────────── */}
           <div>
-            <div className="mb-6 flex items-center gap-2">
-              <Ticket className="h-5 w-5 text-foreground" />
-              <h3 className="font-heading text-xl sm:text-2xl">Class Passes</h3>
+            <div className="mb-6">
+              <div className="flex items-center gap-2">
+                <Ticket className="h-5 w-5 text-foreground" />
+                <h3 className="font-heading text-xl sm:text-2xl">Class Passes</h3>
+              </div>
+              <p className="mt-1.5 text-sm text-muted-foreground">For reformer mixed abilities sessions</p>
             </div>
 
             <motion.div
