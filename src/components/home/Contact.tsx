@@ -19,7 +19,7 @@ const contactDetails = {
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-const FORMSUBMIT_URL = "https://formsubmit.co/ajax/leighreformerpilatesstudio@yahoo.com";
+const FORMSUBMIT_URL = "https://formsubmit.co/ajax/340810e3a34d787839bceb466255ec8f";
 
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
