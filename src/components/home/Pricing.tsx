@@ -8,6 +8,7 @@ import sweatshirtImg from "@/assets/photoshoot/merchandise-pics/merchandise-swea
 
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
 const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
+const INDUCTION_VOUCHER_URL = "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/vouchers";
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
@@ -251,22 +252,41 @@ export default function Pricing() {
               <h3 className="font-heading text-xl sm:text-2xl">Gift Vouchers</h3>
             </div>
 
-            <a
-              href={VOUCHERS_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex cursor-pointer items-center justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-foreground/20 btn-scale-hover"
-            >
-              <div>
-                <p className="font-heading text-base font-semibold sm:text-lg">
-                  Buy a gift voucher
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  The perfect gift for someone special. Valid for 12 months from purchase.
-                </p>
-              </div>
-              <ArrowRight className="ml-4 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
-            </a>
+            <div className="space-y-3">
+              <a
+                href={VOUCHERS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex cursor-pointer items-center justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-foreground/20 btn-scale-hover"
+              >
+                <div>
+                  <p className="font-heading text-base font-semibold sm:text-lg">
+                    Buy a gift voucher
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    The perfect gift for someone special. Valid for 12 months from purchase.
+                  </p>
+                </div>
+                <ArrowRight className="ml-4 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
+              </a>
+
+              <a
+                href={INDUCTION_VOUCHER_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex cursor-pointer items-center justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-foreground/20 btn-scale-hover"
+              >
+                <div>
+                  <p className="font-heading text-base font-semibold sm:text-lg">
+                    Buy an induction gift voucher
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Gift an induction session — the perfect way to start someone's Pilates journey.
+                  </p>
+                </div>
+                <ArrowRight className="ml-4 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </Container>
