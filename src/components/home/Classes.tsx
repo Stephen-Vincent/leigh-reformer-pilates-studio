@@ -46,7 +46,7 @@ const classTypes: ClassCardItem[] = [
     tag: "All levels",
     image: { src: backCareImg, alt: "Back care pilates session with instructor" },
     details:
-      "Targeted Pilates sessions designed to help relieve and prevent back pain through gentle, controlled movement. Each session is carefully adapted to support spinal health, improve posture and build core strength.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50 (£18.50 per class)\n• Five Class Pass – £102.00\n• Ten Class Pass – £168.00",
+      "Targeted Pilates sessions designed to help relieve and prevent back pain through gentle, controlled movement. Each session is carefully adapted to support spinal health, improve posture and build core strength.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50\n• Five Class Pass – £102.00\n• Ten Class Pass – £168.00",
   },
 ];
 
