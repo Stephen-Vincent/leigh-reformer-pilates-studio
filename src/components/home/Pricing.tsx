@@ -7,6 +7,7 @@ import vestImg from "@/assets/photoshoot/group-reformer/group-reformer-branded-t
 import sweatshirtImg from "@/assets/photoshoot/merchandise-pics/merchandise-sweatshirts-back-group-01.jpg";
 
 const PASSES_URL = "https://bookwhen.com/leighreformerpilates/passes";
+const BACK_CARE_PASSES_URL = "https://bookwhen.com/back-care/passes";
 const VOUCHERS_URL = "https://bookwhen.com/leighreformerpilates/vouchers";
 const INDUCTION_VOUCHER_URL = "https://bookwhen.com/induction-at-leigh-reformer-pilates-studio/vouchers";
 
@@ -54,6 +55,12 @@ const classPasses: PassItem[] = [
   { name: "Three Class Pass", price: "£48.00", note: "£16.00 per class" },
   { name: "Five Class Pass", price: "£72.50", note: "£14.50 per class", highlight: true },
   { name: "Ten Class Pass", price: "£120.00", note: "£12.00 per class" },
+];
+
+const backCarePasses: PassItem[] = [
+  { name: "Three Class Pass", price: "£55.50", note: "£18.50 per class" },
+  { name: "Five Class Pass", price: "£102.00", note: "£17.00 per class", highlight: true },
+  { name: "Ten Class Pass", price: "£168.00", note: "£14.00 per class" },
 ];
 
 type MerchItem = { name: string; price: string; image: string; imageAlt: string };
@@ -171,6 +178,57 @@ export default function Pricing() {
                 <motion.div key={pass.name} variants={cardFade}>
                   <a
                     href={PASSES_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`group relative block cursor-pointer rounded-2xl border p-6 text-center btn-scale-hover ${
+                      pass.highlight
+                        ? "border-foreground/20 bg-primary text-primary-foreground shadow-lg"
+                        : "border-border bg-card shadow-sm hover:border-foreground/20"
+                    }`}
+                  >
+                    {pass.highlight && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-0.5 text-[10px] uppercase tracking-widest text-accent-foreground">
+                        Popular
+                      </span>
+                    )}
+                    <p className={`text-sm font-medium ${pass.highlight ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                      {pass.name}
+                    </p>
+                    <p className="mt-3 font-heading text-3xl font-bold">{pass.price}</p>
+                    <p className={`mt-2 text-xs ${pass.highlight ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                      {pass.note}
+                    </p>
+                    <p className={`mt-4 inline-flex items-center gap-1 text-xs font-medium ${pass.highlight ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                      Buy now
+                      <ArrowRight className="h-3 w-3" />
+                    </p>
+                  </a>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── Back Care Passes ─────────────────────────── */}
+          <div>
+            <div className="mb-6">
+              <div className="flex items-center gap-2">
+                <Ticket className="h-5 w-5 text-foreground" />
+                <h3 className="font-heading text-xl sm:text-2xl">Back Care Passes</h3>
+              </div>
+              <p className="mt-1.5 text-sm text-muted-foreground">For back care sessions</p>
+            </div>
+
+            <motion.div
+              variants={cardContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid gap-4 sm:grid-cols-3"
+            >
+              {backCarePasses.map((pass) => (
+                <motion.div key={pass.name} variants={cardFade}>
+                  <a
+                    href={BACK_CARE_PASSES_URL}
                     target="_blank"
                     rel="noreferrer"
                     className={`group relative block cursor-pointer rounded-2xl border p-6 text-center btn-scale-hover ${
