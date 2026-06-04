@@ -45,7 +45,7 @@ const classPrices: ClassPrice[] = [
   { name: "Reformer Pilates", price: "£17" },
   { name: "Induction Session", price: "£20" },
   { name: "Mat Pilates", price: "£9" },
-  { name: "Back Care", price: "TBC", comingSoon: true },
+  { name: "Back Care", price: "£18.50" },
 ];
 
 type PassItem = { name: string; price: string; note: string; highlight?: boolean };

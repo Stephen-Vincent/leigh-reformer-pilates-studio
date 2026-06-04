@@ -13,8 +13,8 @@ export const bookingLinks = {
   matPilates:
     "https://bookwhen.com/mat-pilates-leigh-reformer-pilates-studio#focus=ev-s71ws-20260304112000",
 
-  /** Back Care (add the real link when ready) */
-  backCare: "",
+  /** Back Care */
+  backCare: "https://bookwhen.com/back-care#focus=ev-sjx4v-20260708184500",
 
   /** Fallback / generic — points to induction for safety */
   primary:
@@ -52,6 +52,5 @@ export const classOptions: ClassOption[] = [
     description:
       "Targeted sessions to help relieve and prevent back pain.",
     href: bookingLinks.backCare,
-    comingSoon: true,
   },
 ];
