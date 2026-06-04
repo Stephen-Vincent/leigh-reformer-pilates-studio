@@ -66,8 +66,8 @@ const matPilatesPasses: PassItem[] = [
 
 const backCarePasses: PassItem[] = [
   { name: "Three Class Pass", price: "£55.50", note: "£18.50 per class" },
-  { name: "Five Class Pass", price: "£102.00", note: "£17.00 per class", highlight: true },
-  { name: "Ten Class Pass", price: "£168.00", note: "£14.00 per class" },
+  { name: "Six Class Pass", price: "£102.00", note: "£17.00 per class", highlight: true },
+  { name: "Twelve Class Pass", price: "£168.00", note: "£14.00 per class" },
 ];
 
 type MerchItem = { name: string; price: string; image: string; imageAlt: string };

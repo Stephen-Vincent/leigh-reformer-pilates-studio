@@ -28,7 +28,7 @@ const classTypes: ClassCardItem[] = [
     tag: "All levels",
     image: { src: mixedImg, alt: "Mixed ability reformer pilates class in action" },
     details:
-      "This class focuses on improving posture, flexibility, joint health and muscular strength. Exercises are adapted to suit all abilities, making it ideal whether you are progressing from your induction or already experienced.\n\nClass times:\n\n• Monday – 10:00 • 11:15 • 17:30 • 18:45\n• Tuesday – 10:00 • 17:30 • 18:45\n• Wednesday – 06:30 • 10:00 • 17:30 • 20:00\n• Thursday – 10:00 • 17:30 • 18:45\n• Friday – 06:30 • 08:45 • 10:00 • 11:15 • 17:30\n• Saturday – 08:15 • 09:30 • 10:45\n\nClass passes available:\n• Three Class Pass – £48.00\n• Five Class Pass – £72.50\n• Ten Class Pass – £120.00",
+      "This class focuses on improving posture, flexibility, joint health and muscular strength. Exercises are adapted to suit all abilities, making it ideal whether you are progressing from your induction or already experienced.\n\nClass times:\n\n• Monday – 10:00 • 11:15 • 17:30 • 18:45\n• Tuesday – 10:00 • 17:30 • 18:45\n• Wednesday – 06:30 • 10:00 • 17:30 • 20:00\n• Thursday – 10:00 • 17:30 • 18:45\n• Friday – 06:30 • 08:45 • 10:00 • 11:15 • 17:30\n• Saturday – 08:15 • 09:30 • 10:45\n\nClass passes available:\n• Three Class Pass – £48.00\n• Five Class Pass – £72.50\n• Ten Class Pass – £120.00\n\nFor one-to-one sessions, please get in touch via our contact form below.",
   },
   {
     title: "Mat Pilates",
@@ -37,7 +37,7 @@ const classTypes: ClassCardItem[] = [
     tag: "All levels",
     image: { src: matImg, alt: "Mat pilates class at Leigh Reformer Pilates Studio" },
     details:
-      "A traditional Pilates class performed on the mat, focusing on core strength, flexibility, balance and body awareness. Suitable for all levels - no induction or previous experience needed.\n\nClass times:\n\n• Friday – 18:45\n\nFor one-to-one sessions, please get in touch via our contact form below.",
+      "Suitable for all levels - no induction or previous experience needed.\n\nClass times:\n\n• Wednesday – 11:20\n• Friday – 18:45\n\nClass passes available:\n• Three Class Pass – £25.50\n• Six Class Pass – £48.50\n• Twelve Class Pass – £86.50",
   },
   {
     title: "Back Care",
@@ -46,7 +46,7 @@ const classTypes: ClassCardItem[] = [
     tag: "All levels",
     image: { src: backCareImg, alt: "Back care pilates session with instructor" },
     details:
-      "Targeted Pilates sessions designed to help relieve and prevent back pain through gentle, controlled movement. Each session is carefully adapted to support spinal health, improve posture and build core strength.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50\n• Five Class Pass – £102.00\n• Ten Class Pass – £168.00",
+      "Each session is carefully adapted to support spinal health, improve posture and build core strength.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50\n• Six Class Pass – £102.00\n• Twelve Class Pass – £168.00",
   },
 ];
 
