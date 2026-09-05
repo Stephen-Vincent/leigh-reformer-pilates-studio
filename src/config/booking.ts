@@ -14,11 +14,10 @@ export const bookingLinks = {
     "https://bookwhen.com/mat-pilates-leigh-reformer-pilates-studio#focus=ev-s71ws-20260304112000",
 
   /** Back Care */
-  backCare: "https://bookwhen.com/back-care#focus=ev-sjx4v-20260708184500",
+  backCare: "https://bookwhen.com/back-care",
 
   /** Fallback / generic — points to induction for safety */
-  primary:
-    "https://leighreformerpilates.bookwhen.com/schedules/9urwlvjz9rkh#",
+  primary: "https://leighreformerpilates.bookwhen.com/schedules/9urwlvjz9rkh#",
 };
 
 /* ── Class options shown to returning clients ────────────────── */
@@ -49,8 +48,7 @@ export const classOptions: ClassOption[] = [
   },
   {
     label: "Back Care",
-    description:
-      "Targeted sessions to help relieve and prevent back pain.",
+    description: "Targeted sessions to help relieve and prevent back pain.",
     href: bookingLinks.backCare,
   },
 ];
