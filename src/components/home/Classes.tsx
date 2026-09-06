@@ -40,13 +40,13 @@ const classTypes: ClassCardItem[] = [
       "Suitable for all levels - no induction or previous experience needed.\n\nClass times:\n\n• Wednesday – 11:20\n• Friday – 18:45\n\nClass passes available:\n• Three Class Pass – £25.50\n• Six Class Pass – £48.50\n• Twelve Class Pass – £86.50",
   },
   {
-    title: "Back Care",
+    title: "Back to Basics",
     description:
-      "Targeted sessions designed to help relieve and prevent back pain through gentle, controlled movement.",
+      "Reformer and mat Pilates sessions for safe, pain-free movement with specialist instruction.",
     tag: "All levels",
-    image: { src: backCareImg, alt: "Back care pilates session with instructor" },
+    image: { src: backCareImg, alt: "Back to Basics pilates session with instructor" },
     details:
-      "Each session is carefully adapted to support spinal health, improve posture and build core strength.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50\n• Six Class Pass – £102.00\n• Twelve Class Pass – £168.00",
+      "During a 'Back to Basics' session you will complete a series of reformer and mat Pilates based exercises which are easy to follow and which allow you to move safely on the reformer. With the support from a specialist instructor, you will be taught how to tune into your deep core stabilising muscles and re-educated in how to mobilise more efficiently and in a pain free way.\n\nSuitable for absolute beginners or for those with pre-existing back pain or joint issues, including osteoarthritis and osteoporosis. Designed to help you understand the principles of Pilates and learn how to perform reformer exercises correctly, by attending these sessions, you will also improve joint stability and balance, and achieve a stronger and healthier spine. Benefit from a higher awareness of correct posture and healthier movement patterns that assist in the management of lower back pain.\n\nSessions run for 60 minutes.\n\nClass times:\n\n• Wednesday – 18:45\n\nClass passes available:\n• Three Class Pass – £55.50\n• Six Class Pass – £102.00\n• Twelve Class Pass – £168.00",
   },
 ];
 

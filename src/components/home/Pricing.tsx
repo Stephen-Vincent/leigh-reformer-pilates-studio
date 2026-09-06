@@ -47,7 +47,7 @@ const classPrices: ClassPrice[] = [
   { name: "Reformer Pilates", price: "£17" },
   { name: "Induction Session", price: "£20" },
   { name: "Mat Pilates", price: "£9" },
-  { name: "Back Care", price: "£20" },
+  { name: "Back to Basics", price: "£20" },
 ];
 
 type PassItem = { name: string; price: string; note: string; highlight?: boolean };
@@ -266,14 +266,14 @@ export default function Pricing() {
             </motion.div>
           </div>
 
-          {/* ── Back Care Passes ─────────────────────────── */}
+          {/* ── Back to Basics Passes ─────────────────────────── */}
           <div>
             <div className="mb-6">
               <div className="flex items-center gap-2">
                 <Ticket className="h-5 w-5 text-foreground" />
-                <h3 className="font-heading text-xl sm:text-2xl">Back Care Passes</h3>
+                <h3 className="font-heading text-xl sm:text-2xl">Back to Basics Passes</h3>
               </div>
-              <p className="mt-1.5 text-sm text-muted-foreground">For back care sessions</p>
+              <p className="mt-1.5 text-sm text-muted-foreground">For back to basics sessions</p>
             </div>
 
             <motion.div

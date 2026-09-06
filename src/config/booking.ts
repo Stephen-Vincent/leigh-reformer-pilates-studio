@@ -13,7 +13,7 @@ export const bookingLinks = {
   matPilates:
     "https://bookwhen.com/mat-pilates-leigh-reformer-pilates-studio#focus=ev-s71ws-20260304112000",
 
-  /** Back Care */
+  /** Back to Basics */
   backCare: "https://bookwhen.com/back-care",
 
   /** Fallback / generic — points to induction for safety */
@@ -47,8 +47,8 @@ export const classOptions: ClassOption[] = [
     href: bookingLinks.matPilates,
   },
   {
-    label: "Back Care",
-    description: "Targeted sessions to help relieve and prevent back pain.",
+    label: "Back to Basics",
+    description: "Reformer and mat Pilates sessions designed to help you move safely and pain-free, with specialist instruction for all levels.",
     href: bookingLinks.backCare,
   },
 ];
