@@ -79,10 +79,10 @@ export const retreats: Retreat[] = [
       alt: "Yewfield guesthouse set within green gardens and woodland",
     },
     description: [
-      "Situated in the heart of the Lake District just a 15-minute drive from Ambleside you will find Yewfield Vegetarian Guesthouse. Set within 80 acres of private grounds, with beautiful gardens and stunning views across the National Park, here is truly a magical place where you can completely relax. With vegetarian and vegan foods being the staple of each meal, Yewfield’s chefs will often use fresh seasonal vegetables picked from its own gardens to serve you delicious energising meals. Room accommodation at Yewfield is appointed to a very high standard, all with en-suite, TV, and tea and coffee making facilities.",
-      "Each day you will get to practice reformer and mat Pilates, be led by an experienced instructor, and all whilst using high performance studio equipment. The views from the Pilates studio really are magnificent! You will get to tune into the principles of Joseph Pilates and the original repertoires as well as explore more contemporary approaches. Whether you are advanced or a complete beginner you will be encouraged to build the foundations for a stronger, more flexible body, and connect daily to your deep core stabilising muscles.",
+      "Situated in the heart of the Lake District just a 15-minute drive from Ambleside you will find Yewfield Vegetarian Guesthouse. Set within 80 acres of private grounds, with beautiful gardens and stunning views across the National Park, here is truly a magical place where you can completely relax. With vegetarian and vegan foods being the staple of each meal, Yewfield’s chefs will often use fresh seasonal vegetables picked from its own gardens to serve you delicious energising meals. Room accommodation at Yewfield is appointed to a very high standard, all with en-suite, TV and tea and coffee making facilities.",
+      "Each day you will get to practice reformer and mat Pilates, be led by an experienced instructor and all whilst using high performance studio equipment. The views from the Pilates studio really are magnificent! You will get to tune into the principles of Joseph Pilates and the original repertoires as well as explore more contemporary approaches. Whether you are advanced or a complete beginner you will be encouraged to build the foundations for a stronger, more flexible body and connect daily to your deep core stabilising muscles.",
       "In between sessions you can take a map (packed lunch provided) and enjoy one of the stunning scenic walks directly from the doorstep to Hawkshead, Black Crag, or Tarn Hows. In the afternoon nourish your body with the vital flow of breath and clear your mind by joining the guided breath work and meditation sessions. This is your time to heal from within.",
-      "This retreat really is the perfect place for you to unwind, decompress, and harness the many benefits that reformer and Pilates practice has to offer!",
+      "This retreat really is the perfect place for you to unwind, decompress and harness the many benefits that reformer and Pilates practice has to offer!",
     ],
     prices: [
       { label: "Standard twin", price: "£665", note: "per person, two persons sharing" },
@@ -109,16 +109,16 @@ export const retreats: Retreat[] = [
       {
         day: "Day 1",
         items: [
-          { time: "3pm", text: "Check in, then cakes, teas, and coffees served" },
+          { time: "3pm", text: "Check in, then cakes, teas and coffees served" },
           { time: "3.15pm", title: "Introduction to the reformer", text: "Session for beginners. Learn how to use the reformer safely." },
-          { time: "4–7pm", title: "Reformer: a taste of classical", text: "Small group 50-minute sessions (maximum 5 persons). Experience some of the original reformer exercises as intended by Joseph Pilates, set the foundations, and experience a full-body workout." },
+          { time: "4–7pm", title: "Reformer: a taste of classical", text: "Small group 50-minute sessions (maximum 5 persons). Experience some of the original reformer exercises as intended by Joseph Pilates, set the foundations and experience a full-body workout." },
           { time: "7.30pm", text: "Two course evening dinner service" },
         ],
       },
       {
         day: "Day 2",
         items: [
-          { time: "8.30am", title: "Mat Pilates classical", text: "Group (maximum 15 persons). Tune in to the original principles of Joseph Pilates (control, flow, precision, concentration, breath, and centering) and practice some of the classical mat repertoire." },
+          { time: "8.30am", title: "Mat Pilates classical", text: "Group (maximum 15 persons). Tune in to the original principles of Joseph Pilates (control, flow, precision, concentration, breath and centering) and practice some of the classical mat repertoire." },
           { time: "9.45am", text: "Hot and cold buffet breakfast" },
           { time: "11am", title: "Scenic walks", text: "Take a map and enjoy one of the scenic walks directly from the door to Hawkshead, Black Crag, or Tarn Hows (packed lunch provided) or relax/read a book in Yewfield’s beautiful grounds." },
           { time: "2pm", title: "Guided breath work and meditation", text: "Nourish your body with the vital flow of breath and clear your mind. This is your time to heal from within." },
@@ -129,7 +129,7 @@ export const retreats: Retreat[] = [
       {
         day: "Day 3",
         items: [
-          { time: "8.30am", title: "Mat Pilates with small equipment", text: "Group (maximum 15 persons). Connect to your deep core stabilisers, challenge balance, and enhance postural awareness." },
+          { time: "8.30am", title: "Mat Pilates with small equipment", text: "Group (maximum 15 persons). Connect to your deep core stabilisers, challenge balance and enhance postural awareness." },
           { time: "9.45am", text: "Hot and cold buffet breakfast" },
           { time: "11am", title: "Scenic walks", text: "Take a map and enjoy one of the scenic walks directly from the door to Hawkshead, Black Crag, or Tarn Hows (packed lunch provided) or relax/read a book in Yewfield’s beautiful grounds." },
           { time: "2pm", title: "Guided breath work and meditation", text: "Nourish your body with the vital flow of breath and clear your mind. This is your time to heal from within." },
@@ -140,9 +140,9 @@ export const retreats: Retreat[] = [
       {
         day: "Day 4",
         items: [
-          { time: "8.30am", title: "Yogalates on the mat", text: "Group (maximum 15 persons). A fusion of yoga and Pilates which combines vinyasa flow, Pilates core work, and a guided relaxation." },
+          { time: "8.30am", title: "Yogalates on the mat", text: "Group (maximum 15 persons). A fusion of yoga and Pilates which combines vinyasa flow, Pilates core work and a guided relaxation." },
           { time: "9.45am", text: "Hot and cold buffet breakfast" },
-          { time: "11am", title: "Checkout", text: "Time to say your goodbyes to new and old acquaintances and leave feeling stronger, deeply rested, rejuvenated, and recharged!" },
+          { time: "11am", title: "Checkout", text: "Time to say your goodbyes to new and old acquaintances and leave feeling stronger, deeply rested, rejuvenated and recharged!" },
         ],
       },
     ],
@@ -173,8 +173,8 @@ export const retreats: Retreat[] = [
     },
     description: [
       "Set in a truly remarkable destination, ‘Big House by the Sea’ offers breathtaking views over the sea and majestic mountains. Located in the coastal village of Llwyngwril on the west coast of Wales, our October retreat will provide you with a well-deserved rest and relaxation time.",
-      "Each day you will get to practice reformer and mat Pilates, be led by an experienced instructor, and all whilst using high performance studio equipment. You will tune into the principles of Joseph Pilates and the original repertoires as well as explore more contemporary approaches. Whether you are advanced or a complete beginner you will be encouraged to build the foundations for a stronger, more flexible body, and connect daily to your deep core stabilising muscles.",
-      "With something for everyone, in between sessions you can either soak in the hot tub, take in the stunning views of the bay, unwind in the eco sauna, take a hike to the beach, chill in the cinema room, or clear your mind by joining the guided breath work and meditation sessions. This is the perfect place for you to unwind, decompress, and harness the many benefits that reformer and Pilates practice has to offer you.",
+      "Each day you will get to practice reformer and mat Pilates, be led by an experienced instructor and all whilst using high performance studio equipment. You will tune into the principles of Joseph Pilates and the original repertoires as well as explore more contemporary approaches. Whether you are advanced or a complete beginner you will be encouraged to build the foundations for a stronger, more flexible body and connect daily to your deep core stabilising muscles.",
+      "With something for everyone, in between sessions you can either soak in the hot tub, take in the stunning views of the bay, unwind in the eco sauna, take a hike to the beach, chill in the cinema room, or clear your mind by joining the guided breath work and meditation sessions. This is the perfect place for you to unwind, decompress and harness the many benefits that reformer and Pilates practice has to offer you.",
     ],
     highlights: [
       "Daily reformer and mat Pilates",
