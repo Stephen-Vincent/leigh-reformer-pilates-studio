@@ -19,6 +19,7 @@ const navLinks = [
   { label: "About", href: "/#about", sectionId: "about" },
   { label: "Reviews", href: "/#reviews", sectionId: "reviews" },
   { label: "Gallery", href: "/gallery", sectionId: null },
+  { label: "Retreats", href: "/retreats", sectionId: null },
   { label: "FAQ", href: "/#faq", sectionId: "faq" },
   { label: "Contact", href: "/#contact", sectionId: "contact" },
 ];
@@ -86,7 +87,7 @@ export default function Header() {
   }, [location.pathname]);
 
   const isLinkActive = (link: (typeof navLinks)[0]) => {
-    if (location.pathname === "/gallery" && link.href === "/gallery") return true;
+    if (location.pathname !== "/" && !link.sectionId && location.pathname.startsWith(link.href)) return true;
     if (location.pathname === "/" && link.sectionId && link.sectionId === activeSection) return true;
     return false;
   };

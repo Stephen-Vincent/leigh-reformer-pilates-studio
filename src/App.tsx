@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { BookingModalProvider } from "./components/shared/BookingModal";
 import HomePage from "./pages/HomePage";
 import GalleryPage from "./pages/GalleryPage";
+import RetreatsPage from "./pages/RetreatsPage";
+import RetreatDetailPage from "./pages/RetreatDetailPage";
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/retreats" element={<RetreatsPage />} />
+          <Route path="/retreats/:id" element={<RetreatDetailPage />} />
         </Routes>
         <Analytics />
       </BookingModalProvider>

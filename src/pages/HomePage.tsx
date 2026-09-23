@@ -7,6 +7,7 @@ import Gallery from "@/components/home/Gallery";
 import Mission from "@/components/home/Mission";
 import Pricing from "@/components/home/Pricing";
 import Reviews from "@/components/home/Reviews";
+import RetreatPopup from "@/components/home/RetreatPopup";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 
@@ -27,6 +28,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <RetreatPopup />
     </div>
   );
 }
